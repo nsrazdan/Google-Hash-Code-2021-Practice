@@ -1,2 +1,3 @@
 language = "bash"
-run = "python \"Google Hash Code 2021 Practice/main.py\" file"
+test1 = "python \"src/main.py\" \"test/a_example\""
+run = "python \"src/main.py\" \"test/a_example\""
