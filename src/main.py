@@ -1,5 +1,12 @@
 import sys
 
+# Tests:
+# python src/main.py test/a_example out/outa.txt
+# python src/main.py test/b_little_bit_of_everything.in out/outb.txt
+# python src/main.py test/c_many_ingredients.in out/outc.txt
+# python src/main.py test/d_many_pizzas.in out/outd.txt
+# python src/main.py test/e_many_teams.in out/oute.txt
+
 # alg solution: O(m^2 * n)
 # start with random team with largest size
 # find best set of pizzas for that team
@@ -121,7 +128,6 @@ class Solution:
 # move on to next biggest team
 # repeat until all teams done
   def solve(self):
-    self.print_debug()
     for team in self.unserved_teams:
       # not enough pizzas to serve current team
       if len(self.pizzas) < team.size:
@@ -140,20 +146,19 @@ class Solution:
           else:
             if num_unique > highest_worth[0]:
               highest_worth = [num_unique, pizza]
-        # https://stackoverflow.com/questions/14829640/how-to-continue-in-nested-loops-in-python
+              
         if (found_unique):
           continue
         else:
           self.pizzas.remove(highest_worth[1])
           team.add_pizza(highest_worth[1])
-            
 
       # team has been served
       self.served_teams.append(team)
       self.unserved_teams.remove(team)
       
   def output(self):
-    f = open("./out/output.txt", "w")
+    f = open(sys.argv[2], "w")
     f.write(str(len(self.served_teams)) + "\n")
     for team in self.served_teams:
       f.write(team.output() + "\n")
@@ -162,6 +167,9 @@ class Solution:
     self.read()
     self.solve()
     self.output()
+  
+  # def get_score(self):
+  #   out = self.output()
 
 if __name__ == "__main__":
   sol = Solution()
