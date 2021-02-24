@@ -15,18 +15,17 @@ class Solution:
   
   def read(self):
     filename = str(sys.argv[0])
-    x = None
 
   def solve(self):
     x = None
 
-  def output(self):
+  def display(self):
     print(self.output)
 
   def run(self):
     self.read()
     self.solve()
-    self.output()
+    self.display()
 
 
 if __name__ == "__main__":

@@ -1,2 +1,2 @@
 language = "bash"
-run = ""
+run = "python \"Google Hash Code 2021 Practice/main.py\" file"
