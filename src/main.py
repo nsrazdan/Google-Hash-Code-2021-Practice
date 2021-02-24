@@ -127,7 +127,7 @@ class Solution:
   # repeat for all pizzas
 # move on to next biggest team
 # repeat until all teams done
-  def solve(self):
+  def greedy_solve(self):
     for team in self.unserved_teams:
       # not enough pizzas to serve current team
       if len(self.pizzas) < team.size:
@@ -165,7 +165,7 @@ class Solution:
 
   def run(self):
     self.read()
-    self.solve()
+    self.greedy_solve()
     self.output()
   
   # def get_score(self):
