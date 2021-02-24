@@ -117,6 +117,9 @@ class Solution:
         pizza = Pizza(i, int(line[0]), line[1:])
         self.pizzas.append(pizza)
 
+      # sort pizzas by number of ingredients
+      self.pizzas.sort(key=lambda x: x.num_ingredients, reverse=True)
+
 # alg solution: O(m^2 * n)
 # start with random team with largest size
 # find best set of pizzas for that team
@@ -167,9 +170,6 @@ class Solution:
     self.read()
     self.greedy_solve()
     self.output()
-  
-  # def get_score(self):
-  #   out = self.output()
 
 if __name__ == "__main__":
   sol = Solution()
