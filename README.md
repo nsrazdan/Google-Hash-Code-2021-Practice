@@ -1,7 +1,9 @@
-# Google-Hash-Code-2021-Practice
-
-## Greedy Solution
-### Algorithm
+# Google Hash Code 2021 Practice
+# Authors
+- Nikhil Razdan
+- Harshit Joshi
+# Greedy Solution
+## Algorithm
 - alg solution: O(m^2 * n)
 - start with random team with largest size
 - find best set of pizzas for that team
@@ -13,7 +15,7 @@
 - move on to next biggest team
 - repeat until all teams done
 
-### Score
+# Score
 - A – Example: 49 points
 - B – A little bit of everything: 5,420 points
 - C – Many ingredients: 90,964,440 points
