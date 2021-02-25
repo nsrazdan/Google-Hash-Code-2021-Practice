@@ -88,9 +88,9 @@ class Solution:
     for pizza in self.pizzas:
       print(str(pizza.index), str(pizza.num_ingredients), ", ".join(pizza.ingredients))
 
-  def read(self):
+  def read(self, input_file):
     # open file for reading
-    filename = str(sys.argv[1])
+    filename = str(input_file or sys.argv[1])
     with open(filename) as fd:
       
       # read in first line, general info
@@ -160,17 +160,33 @@ class Solution:
       self.served_teams.append(team)
       self.unserved_teams.remove(team)
       
-  def output(self):
-    f = open(sys.argv[2], "w")
+  def output(self, out_file):
+    f = open(out_file or sys.argv[2], "w")
     f.write(str(len(self.served_teams)) + "\n")
     for team in self.served_teams:
       f.write(team.output() + "\n")
 
-  def run(self):
-    self.read()
+  def run(self, in_file = None, out_file = None):
+    # we cant use out_file = sys.argv[2] because we wont be able to access that index
+    self.read(in_file or sys.argv[1])
     self.greedy_solve()
-    self.output()
+    self.output(out_file or sys.argv[2])
 
 if __name__ == "__main__":
-  sol = Solution()
-  sol.run()
+  if sys.argv[1] == "build":
+    # input and output files
+    files = [
+      ["test/a_example", "out/outa.txt"],
+      ["test/b_little_bit_of_everything.in", "out/outb.txt"],
+      ["test/c_many_ingredients.in", "out/outc.txt"],
+      ["test/d_many_pizzas.in", "out/outd.txt"],
+      ["test/e_many_teams.in", "out/oute.txt"]
+    ]
+    for i, v in enumerate(files, 1):
+      input_f, output_f = v
+      sol = Solution()
+      sol.run(input_f, output_f)
+      print(f"{i} build done")
+  else:
+    sol = Solution()
+    sol.run()
