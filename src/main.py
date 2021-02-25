@@ -90,7 +90,7 @@ class Solution:
 
   def read(self, input_file):
     # open file for reading
-    filename = str(input_file or sys.argv[1])
+    filename = str(input_file)
     with open(filename) as fd:
       
       # read in first line, general info
@@ -161,7 +161,7 @@ class Solution:
       self.unserved_teams.remove(team)
       
   def output(self, out_file):
-    f = open(out_file or sys.argv[2], "w")
+    f = open(out_file, "w")
     f.write(str(len(self.served_teams)) + "\n")
     for team in self.served_teams:
       f.write(team.output() + "\n")
